@@ -27,7 +27,13 @@ class LoginModel(Model):
                     controls=[
                         username_field,
                         password_field,
-                        ft.OutlinedButton(text="Login", on_click="request_login")
+                        ft.Row(
+                            controls=[
+                            ft.OutlinedButton(text="Login", on_click="request_login"),
+                            ft.OutlinedButton(text="Sign Up", on_click="sign_up"),
+                            ]
+                        )
+                        
                     ]
                 ),
     ]
@@ -48,3 +54,6 @@ class LoginModel(Model):
             print("username : ", self.username_field.value)
             print("password : ", self.password_field.value)
             self.page.go('/home')
+
+    def sign_up(self, e):
+        self.page.go('/signup')
