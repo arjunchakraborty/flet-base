@@ -6,7 +6,7 @@ from pages.signup import SignUpModel
 
 def main(page: ft.Page):
     page.title = "Flet Boilerplate"
-    page.window.height = 812
+    page.window.height = 712
     page.window.width = 375
     Router(
         {'login': LoginModel(page)},
