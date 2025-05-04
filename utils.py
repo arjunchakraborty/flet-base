@@ -98,3 +98,24 @@ async def async_check_auth(page) -> bool:
     except Exception as e:
         print(f"Auth check error: {str(e)}")
         return False
+
+def check_server_connection(timeout: float = 5.0) -> bool:
+    """Check server availability with timeout"""
+    try:
+        requests.get(TEST_URL, timeout=timeout)
+        print("Server is live...")
+        return True
+    except requests.exceptions.RequestException as e:
+        print(f"Server connection failed: {str(e)}")
+        return False
+
+async def async_check_server_connection(timeout: float = 5.0) -> bool:
+    """Check server availability (async version)"""
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(TEST_URL, timeout=timeout) as _:
+                print("Server is live...")
+                return True
+    except aiohttp.ClientError as e:
+        print(f"Server connection failed: {str(e)}")
+        return False
