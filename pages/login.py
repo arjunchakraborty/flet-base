@@ -1,5 +1,6 @@
 import flet as ft
 from flet_model import Model
+from utils import build_request, async_build_request
 
 class LoginModel(Model):
     route = 'login'
@@ -49,10 +50,18 @@ class LoginModel(Model):
 
             self.update()
         else:
-            #send request and handle response here
-            print("sending login request ...")
-            print("username : ", self.username_field.value)
-            print("password : ", self.password_field.value)
+            """
+            Send request and handle response here
+            use utils.build_request or utils.async_build_request to send your requests
+            
+            data = {"username": self.username_field.value, "password": self.password_field.value}
+            login_resp = build_request(self.page, YOUR_FULL_LOGIN_URL, data, authenticated=False)
+            token = json.loads(login_resp.text)
+            
+            #save the token to client storage (refresh and access tokens) 
+            for k in token:
+                self.page.client_storage.set(k, token[k])
+            """
             self.page.go('/home')
 
     def sign_up(self, e):
