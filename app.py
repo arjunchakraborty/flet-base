@@ -8,12 +8,7 @@ def main(page: ft.Page):
     page.title = "Flet Boilerplate"
     page.window.height = 712
     page.window.width = 375
-    Router(
-        {'login': LoginModel(page)},
-        {'home': HomeModel(page)},
-        {'signup': SignUpModel(page)},
-    )
-    page.go(page.route)
+    page.go("/login")
 
 
 ft.app(target=main)

@@ -1,11 +1,10 @@
 import flet as ft
-from flet_model import Model
+from flet_model import Model, route
 from email_validator import validate_email, EmailNotValidError
 from zxcvbn import zxcvbn
 
-
+@route('signup')
 class SignUpModel(Model):
-    route = 'signup'
 
     # Layout configuration
     vertical_alignment = ft.MainAxisAlignment.CENTER

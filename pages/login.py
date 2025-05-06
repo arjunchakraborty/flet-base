@@ -1,9 +1,9 @@
 import flet as ft
-from flet_model import Model
+from flet_model import Model, route
 from utils import build_request, async_build_request
 
+@route('login')
 class LoginModel(Model):
-    route = 'login'
 
     # Layout configuration
     vertical_alignment = ft.MainAxisAlignment.CENTER
