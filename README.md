@@ -31,7 +31,7 @@ After activating your virtual environment :
 
 3. **Run the application:**
    ```bash
-   flet run app.py 
+   
    ```
 # Network Utilities Documentation
 
