@@ -4,14 +4,14 @@ class BasePage(ft.View):
 
     def __init__(self, route, page, title, body_controls: list):
         super().__init__(route)
-            # Layout configuration
-        vertical_alignment = ft.MainAxisAlignment.CENTER
-        horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        padding = 20
-        spacing = 10
+        # Layout configuration
+        self.vertical_alignment = ft.MainAxisAlignment.CENTER
+        self.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+        self.padding = 20
+        self.spacing = 10
         self.page = page
         self.appbar = ft.AppBar(title=ft.Text(title))
-        self.controls = list(ft.Column(body_controls, expand=True))
+        self.controls = [ft.Column(body_controls, expand=True)]
         self.bottom = self._bottom_navigation()
 
     def _bottom_navigation(self):
